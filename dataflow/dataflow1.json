@@ -12,8 +12,20 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "storage",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          key as string",
@@ -24,7 +36,14 @@
 				"     rowUrlColumn: 'filename',",
 				"     format: 'json',",
 				"     container: 'input',",
-				"     documentForm: 'arrayOfDocuments') ~> source1"
+				"     documentForm: 'arrayOfDocuments') ~> source1",
+				"source1 alterRow(updateIf(key == \"value\")) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'json',",
+				"     container: 'output',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
