@@ -42,7 +42,8 @@
 				"     mapColumn(",
 				"          niftyKey = key,",
 				"          filename",
-				"     )) ~> sink1"
+				"     ),",
+				"     partitionBy('roundRobin', 2)) ~> sink1"
 			]
 		}
 	}
