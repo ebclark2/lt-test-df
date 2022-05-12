@@ -21,11 +21,7 @@
 					"name": "sink1"
 				}
 			],
-			"transformations": [
-				{
-					"name": "alterRow1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          key as string",
@@ -37,13 +33,16 @@
 				"     format: 'json',",
 				"     container: 'input',",
 				"     documentForm: 'arrayOfDocuments') ~> source1",
-				"source1 alterRow(updateIf(key == \"value\")) ~> alterRow1",
-				"alterRow1 sink(allowSchemaDrift: true,",
+				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'json',",
 				"     container: 'output',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          niftyKey = key,",
+				"          filename",
+				"     )) ~> sink1"
 			]
 		}
 	}
