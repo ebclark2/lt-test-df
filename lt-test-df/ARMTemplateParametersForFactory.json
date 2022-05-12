@@ -7,6 +7,9 @@
 		},
 		"storage_connectionString": {
 			"value": ""
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"value": "/subscriptions/77fc08c3-d69a-42b5-bc10-fe85dd7193c0/resourceGroups/lt-test/providers/Microsoft.Storage/storageAccounts/lttestsa"
 		}
 	}
 }
