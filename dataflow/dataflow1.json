@@ -32,7 +32,8 @@
 				"     rowUrlColumn: 'filename',",
 				"     format: 'json',",
 				"     container: 'input',",
-				"     documentForm: 'arrayOfDocuments') ~> source1",
+				"     documentForm: 'arrayOfDocuments',",
+				"     wildcardPaths:['*/*']) ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'json',",
@@ -41,7 +42,9 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
 				"          niftyKey = key,",
-				"          filename",
+				"          filename,",
+				"          each(match(name == \"timestamp\"),",
+				"               timestamp = $$)",
 				"     ),",
 				"     partitionBy('roundRobin', 2)) ~> sink1"
 			]
