@@ -37,7 +37,7 @@
 				"     documentForm: 'arrayOfDocuments',",
 				"     wildcardPaths:['*']) ~> source1",
 				"source1 derive(key = toString(byName('key')),",
-				"          timestamp = toTimestamp(byName('timestamp'))) ~> MapDrifted1",
+				"          timestamp = toTimestamp(byName('timestamp'), \"yyyy-MM-dd'T'hh:mm:ss.SSS'Z'\")) ~> MapDrifted1",
 				"MapDrifted1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'json',",
