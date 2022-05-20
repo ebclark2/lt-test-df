@@ -5,9 +5,9 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"linkedService": {
-						"referenceName": "storage",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "Json1",
+						"type": "DatasetReference"
 					},
 					"name": "source1"
 				}
@@ -32,12 +32,10 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     rowUrlColumn: 'filename',",
-				"     format: 'json',",
-				"     container: 'input',",
 				"     documentForm: 'arrayOfDocuments',",
 				"     wildcardPaths:['*']) ~> source1",
 				"source1 derive(key = toString(byName('key')),",
-				"          timestamp = toTimestamp(byName('timestamp'), \"yyyy-MM-dd'T'hh:mm:ss.SSS\")) ~> MapDrifted1",
+				"          timestamp = toTimestamp(\"2021-04-18T02:04:22.123\", \"yyyy-MM-dd'T'hh:mm:ss.SSS\")) ~> MapDrifted1",
 				"MapDrifted1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'json',",
