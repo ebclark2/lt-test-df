@@ -143,7 +143,9 @@
 							"sink": {
 								"type": "JsonSink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
+									"type": "AzureBlobStorageWriteSettings",
+									"copyBehavior": "MergeFiles",
+									"blockSizeInMB": 100
 								},
 								"formatSettings": {
 									"type": "JsonWriteSettings"
