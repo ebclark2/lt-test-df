@@ -44,7 +44,10 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
-									"wildcardFileName": "*.txt",
+									"wildcardFileName": {
+										"value": "@pipeline().parameters.filePattern",
+										"type": "Expression"
+									},
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -83,6 +86,12 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"filePattern": {
+						"type": "string",
+						"defaultValue": "*"
+					}
 				},
 				"annotations": []
 			},
