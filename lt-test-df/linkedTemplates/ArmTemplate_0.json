@@ -227,7 +227,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     rowUrlColumn: 'filename',",
-						"     documentForm: 'documentPerLine',",
+						"     documentForm: 'arrayOfDocuments',",
 						"     wildcardPaths:['*']) ~> source1",
 						"source1 derive(key = toString(byName('key')),",
 						"          timestamp = toTimestamp(\"2021-04-18T02:04:22.123\", \"yyyy-MM-dd'T'hh:mm:ss.SSS\")) ~> MapDrifted1",
