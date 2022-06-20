@@ -213,7 +213,8 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"container": "input"
-					}
+					},
+					"encodingName": "UTF-16LE"
 				},
 				"schema": {}
 			},
@@ -353,7 +354,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     rowUrlColumn: 'filename',",
-						"     documentForm: 'arrayOfDocuments',",
+						"     documentForm: 'documentPerLine',",
 						"     wildcardPaths:['*']) ~> source1",
 						"source1 derive(key = toString(byName('key')),",
 						"          timestamp = toTimestamp(\"2021-04-18T02:04:22.123\", \"yyyy-MM-dd'T'hh:mm:ss.SSS\")) ~> MapDrifted1",
