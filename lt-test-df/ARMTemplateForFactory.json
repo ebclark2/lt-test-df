@@ -212,6 +212,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": "test3-utf16.txt",
 						"container": "input"
 					},
 					"encodingName": "UTF-16LE"
