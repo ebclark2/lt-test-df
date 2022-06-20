@@ -11,7 +11,8 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"container": "input"
-			}
+			},
+			"encodingName": "UTF-16LE"
 		},
 		"schema": {}
 	}
