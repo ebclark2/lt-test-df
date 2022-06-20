@@ -314,7 +314,7 @@
 						"     rowUrlColumn: 'filename',",
 						"     format: 'json',",
 						"     container: 'input',",
-						"     fileName: 'test3-utf16.txt',",
+						"     fileName: 'test3-utf16-nb.txt',",
 						"     encodingName: 'UTF-16LE',",
 						"     documentForm: 'arrayOfDocuments') ~> source1",
 						"source1 derive(key = toString(byName('key')),",
