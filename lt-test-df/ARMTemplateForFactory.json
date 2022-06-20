@@ -278,9 +278,9 @@
 				"typeProperties": {
 					"sources": [
 						{
-							"dataset": {
-								"referenceName": "Json1",
-								"type": "DatasetReference"
+							"linkedService": {
+								"referenceName": "storage",
+								"type": "LinkedServiceReference"
 							},
 							"name": "source1"
 						}
@@ -305,8 +305,11 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     rowUrlColumn: 'filename',",
-						"     documentForm: 'arrayOfDocuments',",
-						"     wildcardPaths:['*']) ~> source1",
+						"     format: 'json',",
+						"     container: 'input',",
+						"     fileName: 'test3-utf16.txt',",
+						"     encodingName: 'UTF-16LE',",
+						"     documentForm: 'arrayOfDocuments') ~> source1",
 						"source1 derive(key = toString(byName('key')),",
 						"          timestamp = toTimestamp(\"2021-04-18T02:04:22.123\", \"yyyy-MM-dd'T'hh:mm:ss.SSS\")) ~> MapDrifted1",
 						"MapDrifted1 sink(allowSchemaDrift: true,",
@@ -326,7 +329,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Json1')]",
 				"[concat(variables('factoryId'), '/linkedServices/storage')]"
 			]
 		}
