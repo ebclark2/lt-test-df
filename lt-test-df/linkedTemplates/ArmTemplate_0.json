@@ -72,7 +72,14 @@
 					},
 					"encodingName": "UTF-16LE"
 				},
-				"schema": {}
+				"schema": {
+					"type": "object",
+					"properties": {
+						"key": {
+							"type": "string"
+						}
+					}
+				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/storage')]"
