@@ -323,14 +323,9 @@
 						"     validateSchema: false,",
 						"     format: 'json',",
 						"     container: 'output',",
+						"     encodingName: 'UTF-8',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
-						"     mapColumn(",
-						"          niftyKey = key,",
-						"          filename,",
-						"          each(match(name==\"timestamp\"),",
-						"               \"timestamp\" = $$)",
-						"     ),",
 						"     partitionBy('roundRobin', 2)) ~> sink1"
 					]
 				}
